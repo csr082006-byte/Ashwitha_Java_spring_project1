@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Student management dashboard</p>
+        <h1>Keep your student records organized and polished.</h1>
+        <p class="hero-text">Add new learners, review your academy roster, and manage everything from one clean workspace.</p>
+      </div>
+      <div class="hero-card">
+        <div class="stat-box">
+          <span id="studentCount">0</span>
+          <small>Students</small>
+        </div>
+        <div class="stat-box">
+          <span>Live</span>
+          <small>Sync</small>
+        </div>
+      </div>
+    </header>
+
+    <main class="content-grid">
+      <section class="card form-card">
+        <div class="card-header">
+          <div>
+            <p class="eyebrow">Quick add</p>
+            <h2>Add a student</h2>
+          </div>
+        </div>
+        <form onsubmit="event.preventDefault(); addStudent();">
+          <label>
+            <span>Name</span>
+            <input type="text" id="name" placeholder="Enter full name" required>
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" id="email" placeholder="Enter email" required>
+          </label>
+          <label>
+            <span>Course</span>
+            <input type="text" id="course" placeholder="Enter course" required>
+          </label>
+          <button type="submit">Add Student</button>
+        </form>
+        <div id="feedback" class="feedback" role="status"></div>
+      </section>
+
+      <section class="card table-card">
+        <div class="card-header">
+          <div>
+            <p class="eyebrow">Roster</p>
+            <h2>All students</h2>
+          </div>
+        </div>
+        <table id="studentTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Course</th>
+            </tr>
+          </thead>
+          <tbody id="studentTableBody">
+            <tr>
+              <td colspan="4" class="empty-state">Loading students...</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
